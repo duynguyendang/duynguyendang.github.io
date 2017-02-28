@@ -10,6 +10,7 @@ layout: default
 **Experience**
 ----------
 **Software Architect - FPT Technology Solutions**
+
 *Sep 2012 – Present*
 
 Build a Integration Platform w RabbitMQ, MemSQL, ActiveMQ, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch.
