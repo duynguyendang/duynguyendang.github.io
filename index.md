@@ -1,23 +1,9 @@
 ---
 layout: default
 ---
-
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](another-page).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# [](#header-1)Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## [](#header-2)Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### [](#header-3)Header 3
+10+ years of experience in software development.
+Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, client/server application, SOA, system integration, cloud application.
+Experienced in ERP system (Oracle EBS), warehouse management, product management, supply chain management, ITS,CMS...
+Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall,
+Spiral, Continuous Integration (CruiseControl.NET, Hudson). Test driven development.
+10+ years of experience in developing .NET application, especially ASP.NET.
