@@ -17,8 +17,12 @@ layout: default
 ----------
 ##### **Software Architect - FPT Technology Solutions**
 *Sep 2012 – Present*
-- Build Traffic data Integration Platform (TIP) using RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana. TIP provide a set of tools to monitor quality of GPS data, calculate average traffic speed, analytic GPS data. TIP now handle more than 160 mil messages per day. TIP also provide calculated traffic data for http://giaothong.hochiminhcity.gov.vn/
-- Build transaction processing system using Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin.
+- Build Traffic data Integration Platform (TIP) 
+  - TIP provide a set of tools to monitor quality of GPS data, calculate average traffic speed, analytic GPS data. 
+  - TIP now handle more than 160 mil messages per day. 
+  - Provided calculated traffic data for http://giaothong.hochiminhcity.gov.vn/
+  - RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana. 
+- Build ticket transaction processing system using Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin.
 - Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
 - Lead Technology solution board.
 
