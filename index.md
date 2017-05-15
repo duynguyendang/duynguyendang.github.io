@@ -39,5 +39,6 @@ layout: default
 *Jun 2008 – Oct 2009*
 - Manage 2 projects, 1 ODC for Japanese customer.
 
-#### Others
+#### Awards/Others
+- FPT Technology Specialists Level 3 - Solution Architect
 - Contributor to tech.fpt.com.vn
