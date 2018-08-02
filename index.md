@@ -2,9 +2,9 @@
 layout: default
 ---
 
-- 10+ years of experience in software development.
+- 15+ years of experience in software development.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, client/server application, SOA, system integration, cloud application.
-- Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking.
+- Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform.
 - Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall, Spiral, Continuous Integration. Test driven development.
 - Experienced in working as DevOps for 3+ years including: develop services with Golang, build Docker, maintain infrastructure.
 
