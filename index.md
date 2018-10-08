@@ -5,8 +5,8 @@ layout: default
 - 15+ years of experience in software development.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, client/server application, SOA, system integration, cloud application.
 - Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform.
+- Experienced in working as DevOps for 5+ years including: develop services with Golang, Docker, maintain infrastructure.
 - Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall, Spiral, Continuous Integration. Test driven development.
-- Experienced in working as DevOps for 5+ years including: develop services with Golang, build Docker, maintain infrastructure.
 
 #### **Technical skills**
 - Programing languages: Golang, C#, Java, PL/SQL
@@ -25,8 +25,11 @@ layout: default
   - TIP now handle more than 160M messages per day. 
   - Provided calculated traffic data for http://giaothong.hochiminhcity.gov.vn/
   - RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana. 
-- Build public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.Using InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin
-- SA for video analytics system with microservices architect: NATS + Golang + Tensorflow 
+- Build public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
+  - Lead SA
+  - Using InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin
+  - Tested with over 1M transactions/day
+- SA for video analytics system with microservices architect: NATS + Golang + Tensorflow
 - Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
 - Lead Technology solution board.
 
@@ -54,4 +57,6 @@ layout: default
 
 #### Awards/Others
 - FPT Technology Specialists Level 3 - Solution Architect
+- FPT Outstanding technology experts in period of 2013 - 2017
 - Contributor to tech.fpt.com.vn
+- https://tech.fpt.com.vn/he-thong-phan-tich-video-theo-kien-truc-microservices/
