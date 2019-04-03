@@ -16,22 +16,20 @@ layout: default
 
 #### **Experience**
 ----------
-##### **Software Architect - FPT Software**
+##### **Solution Architect - FPT Software**
 *Oct 2018 – Present*
-##### **Software Architect - FPT Technology Solutions**
-*Sep 2012 – Oct 2018*
+##### **Solution Architect - FPT Technology Solutions**
+*Sep 2012 – Oct 2018* Lead Technology solution board.
 - Build Traffic data Integration Platform (TIP) 
   - TIP provide a set of tools to monitor quality of GPS data, calculate average traffic speed, analyze GPS data.
   - TIP now handle more than 160M messages per day. 
   - Provided calculated traffic data for http://giaothong.hochiminhcity.gov.vn/
   - RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana. 
 - Build public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
-  - Lead SA
   - Using InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin
   - Tested with over 1M transactions/day
 - SA for video analytics system with microservices architect: NATS + Golang + Tensorflow
 - Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
-- Lead Technology solution board.
 
 ##### **Project Manager - FPT Software**
 *Jun 2007 – Oct 2009*
