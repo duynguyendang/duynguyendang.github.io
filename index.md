@@ -12,7 +12,7 @@ layout: default
 - Programing languages: Golang, C#, Java, PL/SQL
 - DBMS: MongoDB, MemSQL, Postgres, SQL Server, Oracle
 - InfluxDB + Grafana, ELK, Hadoop + Spark, Apache Zeppelin
-- Docker, Kubernetes, Openshift, AWS, GCP, Azure
+- Docker, Kubernetes, Openshift, AWS, GCP
 
 #### **Experience**
 ----------
@@ -29,7 +29,7 @@ layout: default
   - Technical stacks: RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana.
 
 - E-ticketing System
-  - Build public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
+  - Public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
   - Using InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin
   - Tested with over 1M transactions/day
 
