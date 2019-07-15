@@ -23,10 +23,13 @@ layout: default
 ##### **Senior Solution Architect - FPT Technology Solutions**
 *Sep 2012 – Oct 2018* 
 - Lead Technology Solution Board.
-  - Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
+  - Standardize technical stack for all the running projects and solution: Traffic violations detection system, Smart traffic information system, Bus management system.
+  - Develop common tool: system monitoring, log collector, data analytic tools.
+  - Deploy new technology into all projects and solutions: Big data (2013), Container (2015), Kubernetes (2017)
 
 - Traffic data Integration Platform (TIP) 
-  - Design and implement a platform with 30+ microservices to collect GPS data from vehicles blackbox via blackbox providers, GPS data from Ministry of Transport, vehicle counting from camera, then aggregate and calculate traffic flow velocity, density. 
+  - Design and implement a platform with 30+ microservices to collect GPS data from vehicles blackbox via blackbox providers, GPS data from Ministry of Transport, vehicle counting from camera, then aggregate and calculate traffic flow velocity, density.
+  - Maintain and upgrade platform from version 1 using SOA to Microservices 
   - Provide a set of tools to monitor quality of GPS data, analyze GPS data.
   - Provided calculated traffic data for http://giaothong.hochiminhcity.gov.vn/, mobile application TTGT HCM. 
   - Store warm data to HDFS, cool data to cloud storage.
@@ -34,9 +37,9 @@ layout: default
   - Technical stacks: RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana.
 
 - E-ticketing System
-  - Design and implement Public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
+  - Design and implement Public transport E-ticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
   - Tested with over 1M transactions/day
-  - Technical stacks: InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin.
+  - Technical stacks: InfluxDB + Grafana, Elasticsearch, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin.
 
 - Video analytics system
   - Design a video analytics system with microservices architect.
@@ -69,4 +72,3 @@ layout: default
 - FPT Technology Specialists Level 3 - Solution Architect
 - FPT Outstanding technology experts in period of 2013 - 2017
 - Contributor to tech.fpt.com.vn
-- https://tech.fpt.com.vn/he-thong-phan-tich-video-theo-kien-truc-microservices/
