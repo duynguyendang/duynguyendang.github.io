@@ -21,24 +21,31 @@ layout: default
 - Digital Platform: IoT, Big data, AI platform.
 
 ##### **Senior Solution Architect - FPT Technology Solutions**
-*Sep 2012 – Oct 2018* Lead Technology solution board.
+*Sep 2012 – Oct 2018* 
+- Lead Technology Solution Board.
+  - Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
+
 - Traffic data Integration Platform (TIP) 
-  - TIP provide a set of tools to monitor quality of GPS data, calculate average traffic speed, analyze GPS data.
-  - TIP now handle more than 140M messages per day, 70k+ vehicles.
+  - Design and implement a platform with 30+ microservices to collect GPS data from vehicles blackbox via blackbox providers, GPS data from Ministry of Transport, vehicle counting from camera, then aggregate and calculate traffic flow velocity, density. 
+  - Provide a set of tools to monitor quality of GPS data, analyze GPS data.
   - Provided calculated traffic data for http://giaothong.hochiminhcity.gov.vn/, mobile application TTGT HCM. 
+  - Store warm data to HDFS, cool data to cloud storage.
+  - TIP now handle more than 140M messages per day, 70k+ vehicles, calculate average traffic flow velocity for 100k+ links (road segments)
   - Technical stacks: RabbitMQ, MemSQL, Golang, Zeppelin, InfluxDB, Nats.io, Elasticsearch, Docker, Kubernetes, Consul, Grafana.
 
 - E-ticketing System
-  - Public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
-  - Using InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin
+  - Design and implement Public transport eticketing system base on contactless smart card including device monitoring system, KMS, transaction processing system, reports.
   - Tested with over 1M transactions/day
+  - Technical stacks: InfluxDB + Grafana, Java, Oracle PL/SQL, PostgresSQL, Apache Zeppelin.
 
-- Video analytics system with microservices architect: NATS + Golang + Tensorflow
-- Standardize technical stack for all the running projects: Traffic violations detection system, Smart traffic information system, Bus management system, data monitoring system, data analytic tools.
+- Video analytics system
+  - Design a video analytics system with microservices architect.
+  - Technical stacks: NATS + Golang + Tensorflow.
+  - https://techinsight.com.vn/language/en/video-analysis-system-based-on-microservices-structure/
 
 ##### **Project Manager - FPT Software**
 *Jun 2007 – Oct 2009*
-- Manage 4 projects, 1 ODC for Japanese customer.
+- Manage 4 projects, 1 ODC for Japanese customer with team size 10+
 
 ##### **Technical Leader - FPT Software**
 *Mar 2006 – Feb 2012*
