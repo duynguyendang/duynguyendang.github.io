@@ -18,8 +18,13 @@ layout: default
 ----------
 ##### **Senior Solution Architect - FPT Software**
 *Oct 2018 – Present*
-- Build Digital Platform: IoT - Big data - AI.
-- Technical consultant for IoT & Big data & Cloud projects. Especially cloud native. 
+- Develop and maintain Digital Platform (akaminds): IoT - Big data - AI.
+- Technical consultant for IoT & Big data & Cloud projects. Especially cloud native.
+- Technical stacks: Kubenetes, Golang, Minio, AWS, Azure
+- Projects:
+  - eBus: Using beacon to track number of employees on the company buses. 
+  - Call center: Deploy AI model at production grade
+  - Data lake: Collect, masking, preparing data for AI models... Data from HRs, project data, JIRA ... 
 
 ##### **Lead Technology Solution Board.  - FPT Technology Solutions**
 *Sep 2016 – Oct 2018*
@@ -64,15 +69,24 @@ layout: default
 
 ##### **Senior Developer - FPT Software**
 *Jun 2005 - Mar 2006*
-- Join outsourcing projects: .NET + ASPX + Crytal report.
+- Join many outsourcing projects: .NET + ASPX + Crytal report.
 
 ##### **Developer - FPT Software Solution**
 *Apr 2004 – Jun 2005*
 - Build reporting system with Crystal report + VB 6
-- Develop CRs for FPT HR
+- Develop CRs for FPT HRM
+
+##### **Developer**
+*Jan 2002 – Apr 2005*
+- Free lance developer to build applications, websites 
 
 #### Awards/Others
 - FPT Outstanding technology experts in period of 2013 - 2017
 - FPT Technology Specialists Level 3 - Solution Architect
 - Contributor to tech.fpt.com.vn
 - Presenter at FPT Techday 2016
+
+#### Education/Certificate
+*1997 - 2001* University of Natural Sciences
+*2003 - 2005* Aptech
+*2008* PMF
