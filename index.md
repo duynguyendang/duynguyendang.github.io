@@ -18,20 +18,25 @@ layout: default
 ----------
 ##### **Senior Solution Architect - FPT Software**
 *Oct 2018 – Present*
-- Develop and maintain Digital Platform (akaminds): IoT - Big data - AI.
-- Technical consultant for IoT & Big data & Cloud projects. Especially cloud native.
-- Technical stacks: Kubenetes, Golang, Minio, AWS, Azure
+- Develop and maintain Digital Platform (akaminds.co.jp): IoT - Big data - AI.
+- Technical consultant for IoT & Big data & Cloud projects.
+- Technical stacks: Kubenetes, Docker, Istio, Spark, Databricks, Apache Beam, Minio, AWS, Azure
 - Projects:
-  - eBus: Using beacon to track number of employees on the company buses. 
-  - Call center: Deploy AI model at production grade
-  - Data lake: Collect, masking, preparing data for AI models... Data from HRs, project data, JIRA ... 
-
+  - eBus
+    - Using beacon to track number of employees on the company buses. 
+    - Using GPS to track buses in realtime
+  - Data lake 
+    - Collect, masking, preparing data for AI models... 
+    - Data come from many sources including HRs, project data, JIRA ...
+    - Deploy AI models 
+  - Call center: Deploy AI model to detect abnormal call in call center.
+  
 ##### **Lead Technology Solution Board.  - FPT Technology Solutions**
 *Sep 2016 – Oct 2018*
-  - Standardize technical stack for all the running projects and solution: Traffic violations detection system, Smart traffic information system, Bus management system.
-  - Develop common tools & stacks: system & applications monitoring, log centralize, data analytic tools.
-  - Develop a platform to support develop IoT & AI solutions.
-  - Deploy new technology into all projects and solutions: Big data (2013), Container (2015), Kubernetes (2017)
+- Standardize technical stack for all the running projects and solution: Traffic violations detection system, Smart traffic information system, Bus management system.
+- Develop common tools & stacks: system & applications monitoring, log centralize, data analytic tools.
+- Develop a platform to support develop IoT & AI solutions.
+- Deploy new technology into all projects and solutions: Big data (2013), Container (2015), Kubernetes (2017)
 
 ##### **Senior Solution Architect - FPT Technology Solutions**
 *Sep 2012 – Oct 2018* 
