@@ -2,7 +2,7 @@
 layout: default
 ---
 
-- 15+ years of experience in software development, 6+ years as solution architect, product owner.
+- 15+ years of experience in software development, 6+ years as solution architect.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
 - Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform, AI platform.
 - Experienced in working as DevOps for 5+ years with Docker, Kubernetes in production
@@ -33,7 +33,7 @@ layout: default
     - Deploy AI model to detect abnormal calls in realtime.
     - Deploy model at scale, zero downtime
   
-##### **Lead Technology Solution Board.  - FPT Technology Solutions**
+##### **Lead Technology Solution Board - FPT Technology Solutions**
 *Sep 2016 – Oct 2018*
 - Standardize technical stack and architecture for all the running projects and solutions: Traffic Control System, Traffic violations detection system, Smart traffic information system, Bus management system, E-ticketing system...
 - Develop common tools & stacks: system & applications monitoring, log centralize, data analytic tools.
