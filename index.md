@@ -29,7 +29,7 @@ layout: default
     - Collect, masking, preparing data for AI models... 
     - Data come from many sources including HRs, project data, JIRA ...
     - Deploy AI models 
-  - AI Call center: 
+  - AI for Call center: 
     - Deploy AI model to detect abnormal calls in realtime.
     - Deploy model at scale, zero downtime
   
