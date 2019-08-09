@@ -11,7 +11,7 @@ layout: default
 #### **Technical skills**
 - Programing languages: Golang, C#, Scala, PL/SQL
 - DBMS: MongoDB, MemSQL, Postgres, SQL Server, Oracle
-- InfluxDB + Grafana, ELK, Hadoop + Spark, Apache Zeppelin, RabbitMQ, Kafka, gRPC, TensorFlow serving 
+- InfluxDB + Grafana, ELK, Hadoop + Spark, Apache Zeppelin, RabbitMQ, Kafka, gRPC, TensorFlow serving.
 - Docker, Kubernetes, Openshift, AWS, GCP
 
 #### **Experience**
@@ -99,6 +99,6 @@ layout: default
 - Presenter at FPT Techday 2016
 
 #### Education/Certificate
-- *1997 - 2001* University of Natural Sciences
-- *2003 - 2005* Aptech
-- *2008* PMF
+- 1997 - 2001 University of Natural Sciences
+- 2003 - 2005 Aptech
+- 2008 PMF
