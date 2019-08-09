@@ -2,7 +2,7 @@
 layout: default
 ---
 
-- 15+ years of experience in software development.
+- 15+ years of experience in software development, 6+ years as solution architect, product owner.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
 - Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform, AI platform.
 - Experienced in working as DevOps for 5+ years with Docker, Kubernetes in production
