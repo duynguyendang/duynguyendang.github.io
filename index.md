@@ -29,7 +29,9 @@ layout: default
     - Collect, masking, preparing data for AI models... 
     - Data come from many sources including HRs, project data, JIRA ...
     - Deploy AI models 
-  - Call center: Deploy AI model to detect abnormal call in call center.
+  - AI Call center: 
+    - Deploy AI model to detect abnormal calls in realtime.
+    - Deploy model at scale
   
 ##### **Lead Technology Solution Board.  - FPT Technology Solutions**
 *Sep 2016 – Oct 2018*
@@ -93,5 +95,7 @@ layout: default
 
 #### Education/Certificate
 *1997 - 2001* University of Natural Sciences
+
 *2003 - 2005* Aptech
+
 *2008* PMF
