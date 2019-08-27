@@ -20,6 +20,7 @@ layout: default
 *Oct 2018 – Present*
 - Develop and maintain Digital Platform (akaminds.co.jp): IoT - Big data - AI.
 - Technical consultant for IoT & Big data & Cloud projects.
+- SA for some critical projects at the same time including work with customer to design system, build core team, implement project skeleton, framework.
 - Technical stacks: Kubenetes, Docker, Istio, Spark, Databricks, Apache Beam, Minio, AWS, Azure
 - Projects:
   - eBus
