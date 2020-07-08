@@ -10,8 +10,6 @@ layout: default
 
 ## Technical skills
 
----
-
 - Programing languages: Golang, C#, Scala, PL/SQL
 - DBMS: MongoDB, MemSQL, Postgres, SQL Server, Oracle
 - InfluxDB + Grafana, ELK, Hadoop + Spark, Apache Zeppelin, RabbitMQ, Kafka, gRPC, TensorFlow serving.
