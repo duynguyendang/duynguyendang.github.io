@@ -2,8 +2,6 @@
 layout: default
 ---
 
-# Nguyen Dang Duy
-
 - 15+ years of experience in software development, 6+ years as solution architect.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
 - Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform, AI platform.
@@ -20,8 +18,6 @@ layout: default
 - Docker, Kubernetes, Openshift, AWS, GCP
 
 ## Experience
-
----
 
 ### Senior Solution Architect - FPT Software
 
@@ -132,16 +128,12 @@ layout: default
 
 ## Awards/Others
 
----
-
 - FPT Outstanding technology experts in period of 2013 - 2017
 - FPT Technology Specialists Level 3 - Solution Architect
 - Contributor to tech.fpt.com.vn
 - Presenter at FPT Techday 2016
 
 ## Education/Certificate
-
----
 
 - 1997 - 2001 University of Natural Sciences
 - 2003 - 2005 Aptech
