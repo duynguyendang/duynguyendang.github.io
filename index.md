@@ -2,10 +2,10 @@
 layout: default
 ---
 
-- 15+ years of experience in software development, 6+ years as solution architect.
+- 15+ years of experience in software development, 8+ years as solution architect.
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
 - Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform, AI platform.
-- Experienced in working as DevOps for 5+ years with Docker, Kubernetes in production
+- Experienced in working as DevOps for 6+ years with Docker, Kubernetes in production
 - Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall, Spiral, Continuous Integration, Test driven development.
 
 ## Technical skills
@@ -22,7 +22,7 @@ layout: default
 `Oct 2018 – Present`
 
 - Develop and maintain Digital Platform (akaminds.co.jp): IoT - Big data - AI.
-- Technical consultant for IoT & Big data & Cloud projects.
+- Technical consultant for IoT & Big data & Cloud projects: Gather requirement, develop ADD, working with teams during project running.
 - SA for some critical projects at the same time including work with customer to design system, build core team, implement project skeleton, framework.
 - Technical stacks: Kubenetes, Docker, Istio, Spark, Databricks, Apache Beam, Minio, AWS, Azure
 
@@ -31,6 +31,13 @@ layout: default
 - A enterprise data system build on Azure cloud to collect the data from 150+ sub system, filter, cleansing the data.
 - Data transformed and loaded into Synapse DWH using Azure Data Factory & Databricks.
 - Users can view dashboard and report using Power BI.
+
+#### Company cloud suite
+
+- A cloud suite to accelerate cloudification for customer
+  - Digital labs
+  - Cloud assessment
+  - Secuirity & Cost compliance
 
 #### AI for Call center
 
