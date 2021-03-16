@@ -28,25 +28,35 @@ layout: default
 
 #### Enterprise data platform
 
-- A enterprise data system build on Azure cloud to collect the data from 150+ sub system, filter, cleansing the data.
+- A secured enterprise data system build on Azure cloud to collect the data from 150+ sub system, filter, cleansing the data.
 - Data transformed and loaded into Synapse DWH using Azure Data Factory & Databricks.
 - Users can view dashboard and report using Power BI.
 
 #### Company cloud suite
 
 - A cloud suite to accelerate cloudification for customer
+  - Multi-cloud supports: AWS, Azure, GCP
   - Digital labs
   - Cloud assessment
   - Secuirity & Cost compliance
+
+#### Worker tracking system
+
+- Build a system to be able to track and manage workers with a Bluetooth tag device. The system will include the following main functions:
+  - Security
+  - Personnel Tracking
+  - Efficiency & Productivity
+  - Stacks: Kubernetes, MQTT, m3db, Grafana, Golang, Bluetooth LE, .NET Core
 
 #### AI for Call center
 
 - Deploy AI model to detect abnormal calls in realtime.
 - Deploy model at scale, zero downtime
+- Stacks: Kubernetes, MinIO, MQTT, TensorFlow
 
-#### Data lake
+#### Company data lake
 
-- Collect, masking, preparing data for AI models...
+- Collect, masking, preparing data for AI models.
 - Data come from many sources including HRs, project data, JIRA ...
 
 #### eBus
