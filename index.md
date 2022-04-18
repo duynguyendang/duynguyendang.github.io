@@ -2,18 +2,19 @@
 layout: default
 ---
 
-- 15+ years of experience in software development, 8+ years as solution architect.
+- 20+ years of experience in software development, 10+ years as solution architect.
+- 10+ years of experience in data design, management, data modeling
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
-- Experienced in ERP system (Oracle EBS), ITS, Vehicle tracking, IoT Platform, AI platform.
+- Experienced in Data Management Platform, IoT Platform, AI platform, ERP system (Oracle EBS), ITS, Vehicle tracking.
 - Experienced in working as DevOps for 6+ years with Docker, Kubernetes in production
 - Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall, Spiral, Continuous Integration, Test driven development.
 
 ## Technical skills
 
 - Programing languages: Golang, C#, Scala, PL/SQL
-- DBMS: MongoDB, MemSQL, Postgres, SQL Server, Oracle
+- DBMS: MongoDB, SingleStore, Postgres, SQL Server, Oracle
 - InfluxDB + Grafana, ELK, Hadoop + Spark, Apache Zeppelin, RabbitMQ, Kafka, gRPC, TensorFlow serving.
-- Docker, Kubernetes, Openshift, AWS, GCP
+- Docker, Kubernetes, Openshift, Azure
 
 ## Experience
 
@@ -21,32 +22,43 @@ layout: default
 
 `Oct 2018 – Present`
 
+- Solution Architect for critical projects and working directly with customer to join the workshop, gather requirement, design system, build core team, implement project skeleton, frameworks.
+- Technical consultant & solving technical issues for 30+ projects: Create proposal, ADD, working with teams during project running, solving technical issues
+- Technical stacks: Kubenetes, Docker, Spark, Databricks, Minio, Azure
 - Develop and maintain Digital Platform (akaminds.co.jp): IoT - Big data - AI.
-- Technical consultant for IoT & Big data & Cloud projects: Gather requirement, develop ADD, working with teams during project running.
-- SA for some critical projects at the same time including work with customer to design system, build core team, implement project skeleton, framework.
-- Technical stacks: Kubenetes, Docker, Istio, Spark, Databricks, Apache Beam, Minio, AWS, Azure
+
+#### The Asset Integrity through Artificial intelligence platform
+
+The Asset Integrity through Artificial intelligence platform is a Digital platform for powering digital transformation for oil & gas companies in UAE. It’s comprises the following modules:
+- Asset Digital Passport based on industry best practice and standards
+- Smart Inspection process management and supporting technologies 
+- Asset Health Monitoring through real-time KPIs
+- Analytics and Insights through Flag management and tasks
+
+The solution can deploy on both on-premise (Kubernetes) and Azure cloud and leverage cloud services for cloud deployment.
 
 #### Enterprise data platform
 
-- A secured enterprise data system build on Azure cloud to collect the data from 150+ sub system, filter, cleansing the data.
-- Data transformed and loaded into Synapse DWH using Azure Data Factory & Databricks.
+- A secured enterprise data management platform build on Azure cloud to collect the data from 150+ sub systems.
+- Data loaded from on-premise source systems, stagging to Azure Data lake storage, load to Azure Synapse and build data warehouse.
 - Users can view dashboard and report using Power BI.
+- PII data encrypted from source with custom key, only HRM can access and decrypt data to prevent data leak.
 
 #### Company cloud suite
 
-- A cloud suite to accelerate cloudification for customer
-  - Multi-cloud supports: AWS, Azure, GCP
-  - Digital labs
-  - Cloud assessment
-  - Secuirity & Cost compliance
+A cloud suite to accelerate cloudification for customers
+- Multi-cloud supports: CAWS, Azure, GCP
+- Digital labs
+- Cloud assessment
+- Secuirity & Cost compliance
 
 #### Worker tracking system
 
-- Build a system to be able to track and manage workers with a Bluetooth tag device. The system will include the following main functions:
-  - Security
-  - Personnel Tracking
-  - Efficiency & Productivity
-  - Stacks: Kubernetes, MQTT, m3db, Grafana, Golang, Bluetooth LE, .NET Core
+Build a system to be able to track and manage workers with a Bluetooth tag device. The system will include the following main functions:
+- Security
+- Personnel Tracking
+- Efficiency & Productivity
+- Stacks: Kubernetes, MQTT, m3db, Grafana, Golang, Bluetooth LE, .NET Core
 
 #### AI for Call center
 
@@ -64,12 +76,14 @@ layout: default
 - Using beacon to track number of employees on the company buses.
 - Using GPS to track buses in realtime
 
+#### Digital Platform akaminds.co.jp
+
 ### Lead Technology Solution Board - FPT Technology Solutions
 
 `*Sep 2016 – Oct 2018*`
 
-- Standardize technical stack and architecture for all the running projects and solutions: Traffic Control System, Traffic violations detection system, Smart traffic information system, Bus management system, E-ticketing system...
-- Develop common tools & stacks: system & applications monitoring, log centralize, data analytic tools.
+- Standardize technical stack and architecture for projects and solutions: Traffic Control System, Traffic violations detection system, Smart traffic information system, Bus management system, E-ticketing system...
+- Design and develop common frameworks: system & applications monitoring, log centralize, data analytic tools.
 - Develop a platform to support develop IoT & AI solutions.
 - Deploy new technologies into all projects and solutions: Big data (2013), Container (2015), Kubernetes (2017)
 
@@ -118,7 +132,7 @@ layout: default
 - Join more than 10 outsourcing projects as Technical Leader to solve technical issues, develop the software skeleton, joining pilot teams.
 - Working directly with Japanese, US customers.
 - Design & implement tools to speed-up development processes including convert code, generate code, generate test cases & test reports based on captured evidence.
-- Technical leader + PM to build reporting system based on Oracle EBS, xPath.
+- Technical leader + PM to build reporting system based on Oracle EBS, Generate report using XSLT.
 - Build system architect for cloud delivery service platform w .NET, Windows Azure, Hyper-V, Amazon. Support provisioning, monitoring public/private cloud in a unite UI.
 - Pre-sales support.
 
@@ -146,7 +160,7 @@ layout: default
 - FPT Outstanding technology experts in period of 2013 - 2017
 - FPT Technology Specialists Level 3 - Solution Architect
 - Contributor to tech.fpt.com.vn
-- Presenter at FPT Techday 2016
+- Speaker at FPT Techday 2016
 
 ## Education/Certificate
 
