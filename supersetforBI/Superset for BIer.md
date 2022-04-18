@@ -63,7 +63,7 @@ http://localhost:8080/login/
 
 Màn hình welcome của Superset liệt kê các bảng biểu, đồ thị, báo cáo đã được thao tác trước đó trong hệ thống để dễ dàng truy cập.
 
-![image](superset 1.png)
+!(https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%201.png)
 
 Bước 1: Kết nối dữ liệu
 Apache Superset không lưu trữ dữ liệu nên cần phải kết nối đến một CSDL. Superset cung cấp một công cụ trực quan để thao tác việc kết nối. Nhìn chung thao tác kết nối khá đơn giản. Tuỳ vào loại dữ liệu nguồn mà ta cung cấp các thông tin kết nối tương ứng như username, password.
