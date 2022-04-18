@@ -63,48 +63,48 @@ http://localhost:8080/login/
 
 Màn hình welcome của Superset liệt kê các bảng biểu, đồ thị, báo cáo đã được thao tác trước đó trong hệ thống để dễ dàng truy cập.
 
-![Superset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%201.png)
+![Home](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%201.png)
 
 Bước 1: Kết nối dữ liệu
 Apache Superset không lưu trữ dữ liệu nên cần phải kết nối đến một CSDL. Superset cung cấp một công cụ trực quan để thao tác việc kết nối. Nhìn chung thao tác kết nối khá đơn giản. Tuỳ vào loại dữ liệu nguồn mà ta cung cấp các thông tin kết nối tương ứng như username, password.
 
-![image](superset 2.1.png)
+![Connect to database](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%202.1.png)
 
 Ta cũng có thể kết nối đến CSDL bằng cách cung cấp URI theo cấu trúc SQLAlchemy
 
-![image](superset 2.2.png)
+![Connect to database](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%202.2.png)
 
 Sau khi kết nối, ta có thể bắt đầu tiến hành tạo các tập data (dataset) để vẽ biểu đồ.
 Superset cung cấp giao diện để nhìn tổng quan các dataset có thể thao tác.
 
-![image](superset 3.png)
+![Working with Dataset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%203.png)
 
 Ta có thể tiếp tục làm việc với các dataset đang có, hoặc tạo 1 dataset mới bằng cách kết nối đến CSDL, chọn schema và bảng.
 
-![image](superset 4.png)
+![Add a dataset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%204.png)
 
 Sau khi tạo dataset, ta có thể điều chỉnh cấu hình của dataset như thêm các metric, điều chỉnh cấu hình của dữ liệu như: cột được phép lọc, cột dữ liệu, hoặc thêm các cột tính toán.
 
-![image](superset 5.1.png)
-![image](superset 5.2.png)
-![image](superset 5.3.png)
+![Edit dataset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%205.1.png)
+![Edit dataset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%205.2.png)
+![Edit dataset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%205.3.png)
 
 Sau khi có tập dữ liệu, ta có thể tiến hành tạo biểu đồ.
 Superset cung cấp rất nhiều loại biểu đồ, công việc cần làm là chọn dataset và loại biểu đồ muốn hiển thị
 
-![image](superset 6.png)
+![Create a chart](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%206.png)
 
 Sau đó, ta có thể điều chỉnh lại tuỳ theo nhu cầu cần hiển thị, Superset cung cấp rất nhiều tuỳ chỉnh tuỳ theo biểu đồ và dữ liệu.
 
-![image](superset 7.png)
+![Working with chart](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%207.png)
 
 Bước cuối cùng là đưa tất cả các biểu đồ lên dashboard.
 
-![image](superset 8.png)
+![Create a dashboard](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%208.png)
 
 Ngoài luồng giao diện phục vụ cho việc tạo bảng biểu, Superset còn cung cấp công cụ cho phép người dùng truy vấn dữ liệu, lưu lại các truy vấn và xem lịch sử truy vấn của người dùng.
 
-![image](superset 8.png)
+![Query data with superset](https://github.com/duynguyendang/duynguyendang.github.io/blob/master/supersetforBI/superset%209.png)
 
 Kết
 Apache Superset còn khá mới, tuy nhiên phần giao diện khá hoàn chỉnh và cung cấp công cụ trực quan cho người dùng cần làm phân tích dữ liệu, báo cáo, bảng biểu. Superset cũng cho phép trích bảng biểu để nhúng vào các màn hình ứng dụng, gởi email trực tiếp chứa đường dẫn báo cáo, xuất hình ảnh báo cáo để chia sẻ... Nhìn chung Superset đáp ứng được phần lớn nhu cầu của người làm phân tích dữ liệu và báo cáo.
