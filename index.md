@@ -3,7 +3,7 @@ layout: default
 ---
 
 - 20+ years of experience in software development, 10+ years as solution architect.
-- 10+ years of experience in data design, management, data modeling
+- 10+ years of experience in data architecture, management & governance, data modeling
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
 - Experienced in Data Management Platform, IoT Platform, AI platform, ERP system (Oracle EBS), ITS, Vehicle tracking.
 - Experienced in working as DevOps for 6+ years with Docker, Kubernetes in production
@@ -29,6 +29,8 @@ layout: default
 
 #### The Asset Integrity through Artificial intelligence platform
 
+`Oct 2021 – Present`
+
 The Asset Integrity through Artificial intelligence platform is a Digital platform for powering digital transformation for oil & gas companies in UAE. It’s comprises the following modules:
 - Asset Digital Passport based on industry best practice and standards
 - Smart Inspection process management and supporting technologies 
@@ -37,22 +39,31 @@ The Asset Integrity through Artificial intelligence platform is a Digital platfo
 
 The solution can deploy on both on-premise (Kubernetes) and Azure cloud and leverage cloud services for cloud deployment.
 
-#### Enterprise data platform
+#### Corporate data platform
 
-- A secured enterprise data management platform build on Azure cloud to collect the data from 150+ sub systems.
+`Jan 2020 – Dec 2021`
+
+- A secured enterprise data management platform build on Azure cloud to collect the data from 150+ sub systems, Data size ~3TB
 - Data loaded from on-premise source systems, stagging to Azure Data lake storage, load to Azure Synapse and build data warehouse.
 - Users can view dashboard and report using Power BI.
 - PII data encrypted from source with custom key, only HRM can access and decrypt data to prevent data leak.
+- Work as Solution lead to propose design options, finalize the architecture and develop low level design.
+- Work with delivery team on estimation, technical issues...
+- Stacks: Azure Data Factory, Azure Synapse Analytics, Databricks, PowerBI
 
 #### Company cloud suite
 
+`Jan 2020 – Dec 2020`
+
 A cloud suite to accelerate cloudification for customers
-- Multi-cloud supports: CAWS, Azure, GCP
+- Multi-cloud supports: AWS, Azure, GCP
 - Digital labs
 - Cloud assessment
 - Secuirity & Cost compliance
 
 #### Worker tracking system
+
+`Aug 2019 – Apr 2020`
 
 Build a system to be able to track and manage workers with a Bluetooth tag device. The system will include the following main functions:
 - Security
@@ -77,13 +88,14 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 - Using GPS to track buses in realtime
 
 #### Digital Platform akaminds.co.jp
+- Working as product owner to define product features, planning to develop new features, upgrade components
 
 ### Lead Technology Solution Board - FPT Technology Solutions
 
 `*Sep 2016 – Oct 2018*`
 
-- Standardize technical stack and architecture for projects and solutions: Traffic Control System, Traffic violations detection system, Smart traffic information system, Bus management system, E-ticketing system...
-- Design and develop common frameworks: system & applications monitoring, log centralize, data analytic tools.
+- Standardize technical stacks and architecture for projects and solutions: Traffic Control System, Traffic violations detection system, Smart traffic information system, Bus management system, E-ticketing system...
+- Design and develop common frameworks & solutions: system & applications monitoring, log centralize, data analytic tools.
 - Develop a platform to support develop IoT & AI solutions.
 - Deploy new technologies into all projects and solutions: Big data (2013), Container (2015), Kubernetes (2017)
 
@@ -96,7 +108,7 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 - TCS is a complex system to collect traffic data from VDS (Vehicle detection system), Speed limit violation, CCTV and allow traffic operators to control traffic lights, VMSs, monitor traffic statuses.
 - 100+ VDS cameras, 700+ CCTV, 50+ VMSs
 - Develop monitoring system to monitor camera status, traffic light controller remotely.
-- Joining in design phase
+- Work as lead SA to design the system, work with 3rd vendors to design the integration architecture
 
 #### Traffic data Integration Platform (TIP)
 
@@ -115,7 +127,7 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 
 #### Video analytics system
 
-- Design a video analytics system with microservices architect.
+- Design a horizontal scalable video analytics system with microservices architect.
 - Technical stacks: NATS, Golang, Tensorflow, gRPC
 - <https://techinsight.com.vn/language/en/video-analysis-system-based-on-microservices-structure/>
 
@@ -130,7 +142,7 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 `*Mar 2006 – Feb 2012*`
 
 - Join more than 10 outsourcing projects as Technical Leader to solve technical issues, develop the software skeleton, joining pilot teams.
-- Working directly with Japanese, US customers.
+- Onsite Japanese, US to work directly with customer as technical lead, PM for pilot project, gather requirements, design the systems.
 - Design & implement tools to speed-up development processes including convert code, generate code, generate test cases & test reports based on captured evidence.
 - Technical leader + PM to build reporting system based on Oracle EBS, Generate report using XSLT.
 - Build system architect for cloud delivery service platform w .NET, Windows Azure, Hyper-V, Amazon. Support provisioning, monitoring public/private cloud in a unite UI.
@@ -140,14 +152,14 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 
 `*Jun 2005 - Mar 2006*`
 
-- Join many outsourcing projects: .NET + ASPX + Crytal report.
+- Team leader for many outsourcing projects: .NET + ASPX + Crytal report.
 
 ### Developer - FPT Software Solution
 
 `*Apr 2004 – Jun 2005*`
 
+- Develop new features for FPT HRM
 - Build reporting system with Crystal report + VB 6
-- Develop CRs for FPT HRM
 
 ### Developer
 
