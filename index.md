@@ -176,6 +176,5 @@ Build a system to be able to track and manage workers with a Bluetooth tag devic
 
 ## Education/Certificate
 
-- 1997 - 2001 University of Natural Sciences
 - 2003 - 2005 Aptech
 - 2008 PMF
