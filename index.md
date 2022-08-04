@@ -3,9 +3,9 @@ layout: default
 ---
 
 - 20+ years of experience in software development, 10+ years as solution architect.
-- 10+ years of experience in data architecture, management & governance, data modeling
+- 10+ years of experience in data architecture, management & governance, data modelling
 - Experienced in large scale application, highly transactional application, Big data architecture, Microservices architecture, SOA, client/server application, system integration, cloud application.
-- Experienced in Data Management Platform, IoT Platform, AI platform, ERP system (Oracle EBS), ITS, Vehicle tracking.
+- Experienced in Data Management Platform, IoT Platform, AI platform, ERP system (Oracle EBS), ITS, Location tracking.
 - Experienced in working as DevOps for 6+ years with Docker, Kubernetes in production
 - Experienced in software development methodologies and processes: Agile, SCRUM, Waterfall, Spiral, Continuous Integration, Test driven development.
 
@@ -26,6 +26,7 @@ layout: default
 - Technical consultant & solving technical issues for 30+ projects: Create proposal, ADD, working with teams during project running, solving technical issues
 - Technical stacks: Kubenetes, Docker, Spark, Databricks, Minio, Azure
 - Develop and maintain Digital Platform (akaminds.co.jp): IoT - Big data - AI.
+- Lead Cloud & Data team.
 
 #### The Asset Integrity through Artificial intelligence platform
 
@@ -36,8 +37,9 @@ The Asset Integrity through Artificial intelligence platform is a Digital platfo
 - Smart Inspection process management and supporting technologies 
 - Asset Health Monitoring through real-time KPIs
 - Analytics and Insights through Flag management and tasks
-
-The solution can deploy on both on-premise (Kubernetes) and Azure cloud and leverage cloud services for cloud deployment.
+- The solution can deploy on both on-premise (Kubernetes) and Azure cloud and leverage cloud services for cloud deployment.
+- Work as Solution Architect to propose the solution, tracking development to make sure the solution is ready for production.
+- Stacks: Azure Kubernetes, Azure Data Factory, Spark, Superset, MinIO, Java.
 
 #### Corporate data platform
 
