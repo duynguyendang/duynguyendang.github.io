@@ -1,0 +1,71 @@
+# Jekyll Configuration for duynguyendang.github.io
+# Learn more about Jekyll: https://jekyllrb.com/
+
+# Site Settings
+title: Duy Nguyen Dang
+email: your-email@example.com
+description: >-
+  Welcome to my personal website. I'm a passionate developer and open source contributor.
+  Explore my projects, blog posts, and professional journey.
+baseurl: "" # Leave empty for GitHub Pages
+url: "https://duynguyendang.github.io" # The base hostname & protocol for your site
+github_username: duynguyendang
+twitter_username: 
+linkedin_username: 
+
+# Build Settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .github/
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+
+# Theme Configuration (if using minima)
+minima:
+  skin: auto
+  social_links:
+    - { platform: github, user_url: "https://github.com/duynguyendang" }
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Permalink Structure
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Duy Nguyen Dang"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "default"
+
+# Analytics (Optional - uncomment and configure as needed)
+# google_analytics: "YOUR_GOOGLE_ANALYTICS_ID"
+
+# Search Engine Optimization
+lang: en
+timezone: UTC
