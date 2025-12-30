@@ -4,9 +4,7 @@
 # Site Settings
 title: Duy Nguyen Dang
 email: ngduy.nd@gmail.com
-description: >-
-  Welcome to my personal website. I'm a passionate developer and open source contributor.
-  Explore my projects, blog posts, and professional journey.
+description: "Personal blog and portfolio of Duy Nguyen Dang"
 baseurl: "" # Leave empty for GitHub Pages
 url: "https://duynguyendang.github.io" # The base hostname & protocol for your site
 github_username: duynguyendang
