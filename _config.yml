@@ -8,8 +8,8 @@ description: "Personal blog and portfolio of Duy Nguyen Dang"
 baseurl: "" # Leave empty for GitHub Pages
 url: "https://duynguyendang.github.io" # The base hostname & protocol for your site
 github_username: duynguyendang
-twitter_username: https://x.com/ngduynd
-linkedin_username: https://www.linkedin.com/in/duy-nguyen-dang/ 
+twitter_username: ngduynd
+linkedin_username: duy-nguyen-dang
 
 # Build Settings
 markdown: kramdown
