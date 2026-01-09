@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Quest for a Native Neuro-Symbolic Database: Introducing MEB"
-date: 2025-01-09
+date: 2026-01-09
 categories: [AI, Database, Technology]
 tags: [neuro-symbolic-ai, database, meb, knowledge-graphs, vector-database, hybrid-systems]
 ---
