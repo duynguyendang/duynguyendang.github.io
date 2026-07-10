@@ -56,6 +56,22 @@ Throughout my career at **FPT Software** and **FPT Technology Solutions**, I hav
 * **Performance:** Designed a high-performance system capable of processing over 1 million transactions per day based on contactless smart card technology.
 * **Components:** Developed a full-stack ecosystem including device monitoring, key management systems (KMS), and transaction processing tools.
 
+## Open Source Projects
+
+I actively build and maintain open-source tooling at the intersection of knowledge graphs, vector search, and neuro-symbolic AI:
+
+### MEB — Mangle Extension for Badger
+* **Link:** [github.com/duynguyendang/meb](https://github.com/duynguyendang/meb)
+* **Summary:** An embedded knowledge graph database combining triple-store semantics (SPO/OPS dual indexing) with Hybrid (FWHT + Block-wise) vector search. Built on BadgerDB for disk-scaled storage, it delivers neuro-symbolic retrieval—semantic vector search fused with LFTJ graph traversal—with cross-subsystem transactions and sub-microsecond dictionary lookups.
+
+### Manglekit — Sovereign Neuro-Symbolic Logic Kernel
+* **Link:** [github.com/duynguyendang/manglekit](https://github.com/duynguyendang/manglekit)
+* **Summary:** A Go framework that resolves the "Stochastic Runtime Paradox" of AI by formalizing agent behavior into an OODA Loop (Observe, Orient, Decide, Verify, Act) guarded by a zero-trust supervisor. It enforces deterministic, fail-closed Datalog policies (GenePool) over probabilistic LLM actions, with persistent BadgerDB memory and Genkit integration.
+
+### GCA — Gem Code Analysis
+* **Link:** [github.com/duynguyendang/gca](https://github.com/duynguyendang/gca)
+* **Summary:** A neuro-symbolic code intelligence platform that ingests codebases into a queryable knowledge graph (powered by MEB and Google Mangle). It exposes architecture smell detection, health scoring, multi-modal search (Datalog, natural language, semantic), and an MCP server through an interactive Explorer, letting teams define their own rules as editable Datalog files.
+
 ## Honors & Awards
 
 * **FSOFT Stars** (2023)
