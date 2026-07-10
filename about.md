@@ -74,7 +74,7 @@ I actively build and maintain open-source tooling at the intersection of knowled
 
 ## Honors & Awards
 
-* **FSOFT Stars** (2023)
+* **FSOFT Platium/Stars** (2022/2023)
 * **Star Performer** (2022)
 * **Outstanding Technology Expert** (2013-2017)
 
