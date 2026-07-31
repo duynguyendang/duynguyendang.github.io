@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology Gallery · Architecture Knowledge Base</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b0b14;
+  --surface:rgba(255,255,255,.04);
+  --surface-hover:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.08);
+  --border-hover:rgba(255,255,255,.16);
+  --text:#e8e8ed;
+  --text-dim:#8888a0;
+  --text-faint:#555568;
+  --accent1:#6c5ce7;
+  --accent2:#00cec9;
+  --accent3:#fd79a8;
+  --adopt:#2dd4bf; --trial:#38bdf8; --assess:#fbbf24; --hold:#fb923c; --caution:#f87171;
+  --radius:14px;
+  --font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-d:ui-monospace,SFMono-Regular,'Cascadia Code',Menlo,Consolas,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+.bg-orbs{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-orbs .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;animation:orbFloat 30s ease-in-out infinite}
+.bg-orbs .orb:nth-child(1){width:600px;height:600px;top:-10%;left:-5%;background:radial-gradient(circle,#6c5ce7,transparent);animation-delay:0s}
+.bg-orbs .orb:nth-child(2){width:500px;height:500px;bottom:-10%;right:-5%;background:radial-gradient(circle,#00cec9,transparent);animation-delay:-10s}
+.bg-orbs .orb:nth-child(3){width:400px;height:400px;top:40%;left:50%;background:radial-gradient(circle,#fd79a8,transparent);animation-delay:-20s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(60px,-40px) scale(1.1)}50%{transform:translate(-30px,60px) scale(.95)}75%{transform:translate(40px,30px) scale(1.05)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;animation:grainShift .5s steps(4) infinite}
+@keyframes grainShift{0%{transform:translate(0,0)}25%{transform:translate(-2px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-2px)}}
+main{position:relative;z-index:2;flex:1;width:100%;max-width:1360px;margin:0 auto;padding:40px 24px 80px}
+header{text-align:center;margin-bottom:48px;animation:fadeDown .8s ease-out both}
+header h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-.02em;background:linear-gradient(135deg,var(--accent1),var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+header p{font-size:clamp(.95rem,1.5vw,1.15rem);color:var(--text-dim);max-width:560px;margin:0 auto 20px;line-height:1.5}
+header .count{display:inline-block;padding:4px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--border);font-size:.85rem;color:var(--text-dim);font-family:var(--font-d)}
+.bar{display:flex;flex-direction:column;gap:10px;max-width:900px;margin:0 auto 48px;animation:fadeDown .8s ease-out .1s both}
+.search-wrap{flex:1;min-width:220px;position:relative;max-width:640px;margin:0 auto;width:100%}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-faint);pointer-events:none}
+.search-wrap input{width:100%;padding:12px 16px 12px 44px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.95rem;font-family:inherit;outline:none;transition:all .25s}
+.search-wrap input::placeholder{color:var(--text-faint)}
+.search-wrap input:focus{border-color:var(--accent1);background:rgba(108,92,231,.06);box-shadow:0 0 0 3px rgba(108,92,231,.12)}
+.tag-cloud{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-height:96px;overflow-y:auto;padding:2px}
+.tag-cloud button{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text-dim);font-size:.75rem;cursor:pointer;transition:all .2s;font-family:inherit}
+.tag-cloud button:hover{background:var(--surface-hover);color:var(--text)}
+.tag-cloud button .n{opacity:.55;margin-left:4px;font-size:.7rem}
+.tag-cloud button.active{background:rgba(108,92,231,.2);border-color:var(--accent1);color:var(--accent1)}
+.tag-cloud button.hidden{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:48px;animation:fadeUp .8s ease-out .2s both}
+.card{position:relative;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);padding:24px;display:block;text-align:left;font-family:inherit;color:inherit;cursor:pointer;transition:all .35s cubic-bezier(.22,1,.36,1);animation:cardIn .5s ease-out both;overflow:hidden;animation-delay:calc(var(--i)*12ms)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));opacity:0;transition:opacity .35s}
+.card:hover::before{opacity:1}
+.card:hover{transform:translateY(-4px);border-color:var(--border-hover);background:var(--surface-hover);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.card:active{transform:translateY(-1px)}
+.card:focus-visible{outline:2px solid var(--accent1);outline-offset:2px}
+.card .num{font-family:var(--font-d);font-size:.75rem;font-weight:600;color:var(--text-faint);margin-bottom:8px;letter-spacing:.05em}
+.card h2{font-size:1.15rem;font-weight:600;margin-bottom:8px;line-height:1.3;letter-spacing:-.01em;padding-right:70px}
+.card .desc{font-size:.85rem;color:var(--text-dim);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:14px}
+.card .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto}
+.card .tags button{font-size:.7rem;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text-faint);white-space:nowrap;cursor:pointer;font-family:inherit;transition:all .2s}
+.card .tags button:hover{color:var(--accent1);border-color:var(--accent1);background:rgba(108,92,231,.08)}
+.card .tags button.active{background:rgba(108,92,231,.2);border-color:var(--accent1);color:var(--accent1)}
+.card .tags button.t-new{background:rgba(253,121,168,.12);color:var(--accent3);border-color:rgba(253,121,168,.15)}
+.card .tags button.t-new:hover{color:var(--accent3);border-color:var(--accent3)}
+.card .ring-badge{position:absolute;top:20px;right:14px;font-family:var(--font-d);font-size:.65rem;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-faint)}
+.empty svg{margin-bottom:16px;opacity:.4}
+.empty p{font-size:1.05rem}
+footer{text-align:center;padding:24px;color:var(--text-faint);font-size:.8rem;position:relative;z-index:2;font-family:var(--font-d)}
+footer .cmd{color:var(--text-dim)}
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{background:var(--bg);border:1px solid var(--border);border-radius:20px;max-width:640px;width:100%;max-height:80vh;padding:36px;overflow-y:auto;position:relative;transform:scale(.95) translateY(20px);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.modal-overlay.open .modal{transform:none}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text-dim);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:inherit}
+.modal-close:hover{background:var(--surface-hover);color:var(--text);border-color:var(--border-hover)}
+.modal .num{font-family:var(--font-d);font-size:.8rem;color:var(--text-faint);margin-bottom:6px}
+.modal h2{font-size:1.6rem;margin-bottom:16px;padding-right:40px}
+.modal .section{margin-bottom:18px}
+.modal .section h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);margin-bottom:6px;font-family:var(--font-d)}
+.modal .section p{font-size:.9rem;line-height:1.6;color:var(--text-dim)}
+.modal .section .tags{display:flex;flex-wrap:wrap;gap:4px}
+.modal .section .tags span{font-size:.75rem;padding:4px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
+.modal .section .tags span.t-new{background:rgba(253,121,168,.12);color:var(--accent3);border-color:rgba(253,121,168,.15)}
+.modal .cta{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:12px 28px;border-radius:var(--radius);border:none;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#fff;font-size:.95rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all .25s;font-family:inherit}
+.modal .cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,92,231,.3)}
+.modal .cta:active{transform:translateY(0)}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:700px){main{padding:24px 16px 60px}header{margin-bottom:32px}.bar{margin-bottom:32px}.grid{grid-template-columns:1fr;gap:14px}.modal{padding:24px}}
+@media(max-width:450px){.bar .filter-btns button{flex:1;text-align:center}.filter-rows .filter-btns{width:100%}}
+</style>
+</head>
+<body>
+
+<div class="bg-orbs">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+<div class="grain"></div>
+
+<main>
+  <header>
+    <h1>Technology Gallery</h1>
+    <p>An interactive catalog of technologies tracked in the Architecture Knowledge Base — browse and filter by domain, platform, or practice area.</p>
+    <div class="count" id="countDisplay">0 technologies</div>
+  </header>
+
+  <div class="bar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="Search by name or keyword..." autocomplete="off">
+    </div>
+    <div class="tag-cloud" id="tagCloud"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="empty" id="empty" hidden>
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <p>No technologies match the current filters.</p>
+  </div>
+</main>
+
+
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Technology details">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const RADAR_DATA = [
+  {
+    "name": "React",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "Component-based JavaScript library for building user interfaces, maintained by Meta with a mature ecosystem, server components, and extensive community adoption."
+  },
+  {
+    "name": "React Native",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "Cross-platform mobile framework by Meta for building native iOS and Android applications using React and JavaScript/TypeScript with shared codebases."
+  },
+  {
+    "name": "Svelte",
+    "ring": "adopt",
+    "quadrant": "languages & frameworks",
+    "isNew": "FALSE",
+    "description": "Compiler-driven JavaScript framework that shifts work to compile time, producing smaller bundles and simpler component syntax with reactive state management."
+  },
+  {
+    "name": "DeepEval",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Open-source evaluation framework for LLM applications providing unit-testing-style metrics for correctness, hallucination, bias, and more."
+  },
+  {
+    "name": "Docling",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Document understanding and parsing library by IBM that converts PDFs, Word docs, and images into structured formats (Markdown, JSON) with layout preservation, table extraction, and OCR capabilities."
+  },
+  {
+    "name": "Google Genkit",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Google's open-source framework for building full-stack, AI-powered and agentic applications with typed observable flows, multi-model support, tool calling, RAG, and built-in observability."
+  },
+  {
+    "name": "LangExtract",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "A Rust-based, LLM-powered extraction framework for transforming unstructured documents into structured data with high throughput and low cost."
+  },
+  {
+    "name": "LangGraph",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Graph-based orchestration framework for building stateful, multi-agent LLM applications with controlled execution flows."
+  },
+  {
+    "name": "Modern.js",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Enterprise-grade JavaScript framework by ByteDance for building web and mobile applications with SSR, SSG, RSC, and BFF support in a unified toolchain."
+  },
+  {
+    "name": "Typst",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Modern, LaTeX-alternative typesetting system with a simpler syntax, faster compilation, and a built-in scripting language for creating academic papers, technical documentation, and formatted reports."
+  },
+  {
+    "name": "Vercel AI SDK",
+    "ring": "trial",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Open-source TypeScript toolkit for building AI apps with a provider-agnostic API, streaming-first primitives, tool calling, structured output, and multi-step agent loops."
+  },
+  {
+    "name": "Agent Lightning",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Microsoft Research framework for training AI agents with reinforcement learning, decoupling agent execution from RL training for any agent framework."
+  },
+  {
+    "name": "CrewAI",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Role-based multi-agent orchestration framework for Python, designed for rapid prototyping of agent teams with defined roles, goals, and tasks."
+  },
+  {
+    "name": "Google Agent Development Kit (ADK)",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Open-source, multi-agent-native Python framework for building production-grade agents with structured context engineering, tiered storage, and explicit processor pipelines."
+  },
+  {
+    "name": "Mastra",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "TypeScript-native agent orchestration framework for building AI agents with composable workflows, RAG, and tool integration."
+  },
+  {
+    "name": "Pipecat",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Open-source Python framework for building real-time voice AI agents with support for STT, LLM, TTS pipelines and multi-modal interactions."
+  },
+  {
+    "name": "Pydantic AI",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Python agent framework built on Pydantic, Pydantic Logfire, and structured outputs for type-safe LLM interactions."
+  },
+  {
+    "name": "TOON (Token-Oriented Object Notation)",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Structured data format that uses token-level compression and streaming to reduce LLM parsing overhead and improve structured output reliability."
+  },
+  {
+    "name": "TabFM",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Google Research's zero-shot foundation model for tabular data classification and regression using in-context learning, trained on synthetic data."
+  },
+  {
+    "name": "TabPFN",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Prior-data fitted network for tabular data — a foundation model using in-context learning for classification and regression, pretrained on synthetic data via structural causal models."
+  },
+  {
+    "name": "TanStack Start",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "Full-stack React framework built on TanStack Router with server functions, streaming, and static generation for type-safe web applications."
+  },
+  {
+    "name": "Unsloth",
+    "ring": "assess",
+    "quadrant": "languages & frameworks",
+    "isNew": "TRUE",
+    "description": "High-performance library for fine-tuning LLMs with 2x faster training, reduced memory usage, and broader model support (Llama, Mistral, Qwen, Gemma)."
+  },
+  {
+    "name": "Apache APISIX",
+    "ring": "adopt",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "High-performance, cloud-native API gateway with dynamic routing, plugin extensibility, and multi-protocol support (HTTP, gRPC, WebSocket, TCP/UDP)."
+  },
+  {
+    "name": "pgvector",
+    "ring": "adopt",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "Open-source vector similarity search extension for PostgreSQL, enabling hybrid relational + vector queries with HNSW and IVFFlat indexing."
+  },
+  {
+    "name": "AWS Bedrock AgentCore",
+    "ring": "trial",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "AWS managed service for building, deploying, and tracing AI agents with built-in trace observability, session management, and AG-UI protocol support."
+  },
+  {
+    "name": "Langfuse",
+    "ring": "trial",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Open-source observability and evaluation platform for LLM applications, providing tracing, evals, prompt management, and cost analytics."
+  },
+  {
+    "name": "LiteLLM",
+    "ring": "trial",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Lightweight Python SDK and proxy for calling 100+ LLM APIs with a unified OpenAI-format interface, load balancing, and cost tracking."
+  },
+  {
+    "name": "AWS Data Migration Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "AWS-native blueprint for data migration with DMS, Kinesis, Glue, S3, and Redshift"
+  },
+  {
+    "name": "AWS Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "AWS-native stack with serverless options (Lambda, Fargate) and broadest service ecosystem"
+  },
+  {
+    "name": "Agent Trace",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Observability and tracing platform specifically designed for AI agent workflows, capturing LLM calls, tool invocations, state transitions, and token usage."
+  },
+  {
+    "name": "Amazon OpenSearch Service",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "AWS-managed search, analytics, and vector database platform (Apache 2.0) supporting keyword search, k-NN/ANN vector search, and log analytics — available as provisioned domains or serverless collections."
+  },
+  {
+    "name": "Azure Data Migration Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "Azure-native blueprint for data migration with Data Factory, Databricks, ADLS, and Synapse"
+  },
+  {
+    "name": "Azure Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "Azure-native stack with PaaS services, AKS containers, and Microsoft ecosystem integration"
+  },
+  {
+    "name": "ClickStack",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Cloud-native application platform built on ClickHouse for real-time analytics, observability, and log management workloads."
+  },
+  {
+    "name": "Coder",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Self-hosted platform for cloud development environments and AI coding agents, with Terraform-defined workspaces, secure tunnels, and agent governance."
+  },
+  {
+    "name": "Databricks Agent Bricks",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Databricks' managed platform for building, evaluating, and deploying AI agents with integrated governance, catalog management, and lineage tracking."
+  },
+  {
+    "name": "DuckLake",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Lightweight lakehouse engine combining DuckDB's query performance with Apache Iceberg's table format for small-to-medium analytics workloads."
+  },
+  {
+    "name": "FalkorDB",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "High-performance graph database optimized for AI workloads with property graph model, Cypher query support, and vector similarity search."
+  },
+  {
+    "name": "GCP Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "GCP-native stack with strong Kubernetes (GKE), serverless (Cloud Run), and data/AI services"
+  },
+  {
+    "name": "Google Dialogflow CX",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Google Cloud's conversational AI platform for building virtual agents with visual flow builder, state management, and multi-channel deployment."
+  },
+  {
+    "name": "Graphiti",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Temporal knowledge graph for AI agents by Zep, enabling agents to maintain evolving, time-aware knowledge structures with multi-hop reasoning."
+  },
+  {
+    "name": "MCP Apps",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Applications built on the Model Context Protocol that expose tools, resources, and prompts for AI agents through standardized MCP servers."
+  },
+  {
+    "name": "Mem0",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Memory layer for LLM applications providing persistent, retrieval-augmented memory with entity extraction, summarization, and cross-session recall."
+  },
+  {
+    "name": "Modern Lakehouse Tech Stack Add-on",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "FALSE",
+    "description": "Modern lakehouse stack with Snowflake/Databricks, dbt, and best-of-breed multi-cloud tools"
+  },
+  {
+    "name": "Monarch",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Developer platform for creating and managing internal developer portals with service catalogs, scorecards, and automation workflows."
+  },
+  {
+    "name": "Neutree",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Structured storage and retrieval system for agent memory and state, enabling durable conversation history with graph-based context linking."
+  },
+  {
+    "name": "OptScale",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Open-source FinOps and cloud cost management platform providing cost optimization, budgeting, and resource lifecycle management."
+  },
+  {
+    "name": "Qdrant",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Purpose-built open-source vector database with rich filtering, quantization, and multi-tenancy support, designed for production-scale similarity search."
+  },
+  {
+    "name": "Rhesis",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Platform for systematic LLM evaluation and red-teaming with automated adversarial testing, safety benchmarking, and compliance reporting."
+  },
+  {
+    "name": "RunPod",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Serverless GPU cloud platform optimized for AI inference and training with spot pricing, auto-scaling, and pre-configured template support."
+  },
+  {
+    "name": "SGLang",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Structured generation language and inference runtime for LLMs, optimizing complex output constraints with RadixAttention and compiler-driven execution."
+  },
+  {
+    "name": "SigNoz",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Open-source APM, observability platform for metrics, traces, and logs with OpenTelemetry-native instrumentation and custom dashboards."
+  },
+  {
+    "name": "Sprites",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Persistent, hardware-isolated Linux sandboxes for AI agents by Fly.io — stateful microVMs that pause when idle and wake on demand."
+  },
+  {
+    "name": "Zep",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Long-term memory layer for AI agents providing persistent, searchable conversation memory with summarization, entity extraction, and knowledge graph capabilities."
+  },
+  {
+    "name": "torchforge",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "Distributed training framework for PyTorch that simplifies multi-node GPU training with automated parallelism, checkpointing, and experiment tracking."
+  },
+  {
+    "name": "torchtitan",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "PyTorch-native large-scale training framework for pre-training foundation models with FSDP, tensor parallelism, and pipeline parallelism."
+  },
+  {
+    "name": "vLLM",
+    "ring": "assess",
+    "quadrant": "platforms",
+    "isNew": "TRUE",
+    "description": "High-throughput, memory-efficient LLM inference engine with PagedAttention, continuous batching, and OpenAI-compatible API server."
+  },
+  {
+    "name": "Kafbat UI",
+    "ring": "adopt",
+    "quadrant": "tools",
+    "isNew": "FALSE",
+    "description": "Open-source Apache Kafka web UI for cluster management, topic browsing, consumer group monitoring, and message inspection."
+  },
+  {
+    "name": "Claude Code Plugin Marketplace",
+    "ring": "trial",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Ecosystem of community-contributed plugins and extensions for the Claude Code CLI, enabling custom commands, integrations, and workflows beyond built-in capabilities."
+  },
+  {
+    "name": "Dev Containers",
+    "ring": "trial",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Standardized, containerized development environments defined by a devcontainer.json specification, enabling reproducible coding environments across teams, tools, and CI pipelines."
+  },
+  {
+    "name": "Figma Make",
+    "ring": "trial",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Low-code platform from Figma for building design-to-code automations, design system workflows, and collaborative design operations without writing custom scripts."
+  },
+  {
+    "name": "OpenAI Codex CLI",
+    "ring": "trial",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "OpenAI's command-line interface for interacting with code-generating models (GPT-4o Codex), enabling agentic coding workflows, file editing, and multi-step development tasks from the terminal."
+  },
+  {
+    "name": "cargo-mutants",
+    "ring": "trial",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Rust mutation testing tool that inserts synthetic bugs into Rust code to measure test suite effectiveness and identify untested code paths."
+  },
+  {
+    "name": "Agent Scan",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Security scanning tool for AI agent pipelines, detecting vulnerabilities in prompts, tool configurations, and data handling."
+  },
+  {
+    "name": "Beads",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Particle-based visual programming environment for building AI agent workflows with a node-graph interface."
+  },
+  {
+    "name": "Bloom",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Open-source platform for designing, testing, and deploying AI agent behaviors with simulation and monitoring."
+  },
+  {
+    "name": "CDK Terrain",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "CDK construct library for provisioning and managing Terraform Cloud workspaces and infrastructure as code pipelines."
+  },
+  {
+    "name": "CodeScene",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Code analysis platform that uses behavioral code analysis and machine learning to identify technical debt, hotspots, and team collaboration patterns."
+  },
+  {
+    "name": "ConfIT",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Configuration as code testing framework that validates infrastructure configurations against compliance and security policies."
+  },
+  {
+    "name": "Entire CLI",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "CLI tool for running AI agents across entire codebases, enabling repository-level refactoring, analysis, and code generation."
+  },
+  {
+    "name": "Git AI",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Git extension for AI-assisted version control operations including intelligent commit messages, PR descriptions, and code review."
+  },
+  {
+    "name": "GitHub Spec Kit",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Open-source toolkit for Spec-Driven Development with AI coding agents, providing structured spec → plan → tasks → implement workflows."
+  },
+  {
+    "name": "Google Antigravity",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Google Cloud migration assessment tool for evaluating and planning application migrations with cost and effort estimation."
+  },
+  {
+    "name": "Google Mainframe Assessment Tool",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Tool for analyzing mainframe workloads and planning migration strategies to Google Cloud infrastructure."
+  },
+  {
+    "name": "Marp",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Ecosystem for writing presentations with plain Markdown, converting to HTML, PDF, PPTX, and images via CLI and integrations."
+  },
+  {
+    "name": "Ollama",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Local LLM runner for macOS, Linux, and Windows that packages models into easily runnable containers with OpenAI-compatible API."
+  },
+  {
+    "name": "OpenClaw",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Open-source sandboxing framework for secure execution of AI-generated code with policy-based access control."
+  },
+  {
+    "name": "OpenHands",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "AI-powered coding agent platform that operates in a sandboxed environment to write code, run commands, and interact with files autonomously."
+  },
+  {
+    "name": "OpenSpec",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Open-source specification-driven development framework for defining software requirements and generating implementation plans and test cases."
+  },
+  {
+    "name": "PageIndex",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "AI-powered page object generator that analyzes web applications and automatically creates maintainable page object models for test automation."
+  },
+  {
+    "name": "Pencil",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Lightweight protocol sketching tool for designing and validating API contracts and agent communication protocols before implementation."
+  },
+  {
+    "name": "Pi",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Decentralized AI agent platform for running autonomous agents on a distributed compute network with verifiable execution."
+  },
+  {
+    "name": "Qwen 3 TTS",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Alibaba's text-to-speech model supporting multi-lingual voice synthesis with expressive prosody and real-time streaming."
+  },
+  {
+    "name": "Warp",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "GPU-accelerated terminal emulator with AI-powered command suggestions, intelligent output analysis, and collaborative features."
+  },
+  {
+    "name": "WuppieFuzz",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Fuzzing tool for AI agent protocols and APIs, generating adversarial inputs to test agent robustness and security boundaries."
+  },
+  {
+    "name": "ty",
+    "ring": "assess",
+    "quadrant": "tools",
+    "isNew": "TRUE",
+    "description": "Rust-based CLI for type-safe scripting with inline TypeScript/JavaScript execution, file watching, and pipeline composition."
+  },
+  {
+    "name": "Curated Shared Instructions",
+    "ring": "adopt",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Treating AI guidance as a collaborative engineering asset by committing shared instruction files to repositories rather than relying on individual prompt writing."
+  },
+  {
+    "name": "DORA Metrics",
+    "ring": "adopt",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "DevOps Research and Assessment (DORA) software delivery performance metrics — the industry-standard framework for measuring throughput and stability of software delivery."
+  },
+  {
+    "name": "MLOps",
+    "ring": "adopt",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Operational discipline for machine learning — applying DevOps principles to ML lifecycle management, including pipeline automation, model registry, feature store, and monitoring."
+  },
+  {
+    "name": "Passkeys",
+    "ring": "adopt",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Passwordless authentication standard based on WebAuthn and FIDO2, enabling cross-device credential sync and phishing-resistant login flows."
+  },
+  {
+    "name": "RAG",
+    "ring": "adopt",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Retrieval-Augmented Generation — augmenting LLM responses with external knowledge retrieved from vector databases, search engines, or structured data sources."
+  },
+  {
+    "name": "Agent Skills",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Design pattern for creating reusable, composable capabilities that AI coding agents can discover, load, and execute within development workflows."
+  },
+  {
+    "name": "Browser-based Component Testing",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Testing UI components in real browser environments using tools like Playwright Component Tests or WebdriverIO, enabling realistic rendering, interaction, and accessibility verification without a full application deployment."
+  },
+  {
+    "name": "Context Engineering",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Systematic approach to curating, structuring, and maintaining project context for AI coding agents to improve output quality and consistency."
+  },
+  {
+    "name": "Feedback Sensors for Coding Agents",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Instrumentation patterns that provide coding agents with real-time signals on the quality and correctness of their output, including compilation results, test failures, linter errors, and runtime behavior."
+  },
+  {
+    "name": "LLM Evaluation",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Systematic approach to evaluating LLM outputs — measuring accuracy, relevance, safety, and quality across RAG pipelines, agents, and generation tasks."
+  },
+  {
+    "name": "LLMOps",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Operational discipline for large language models — covering prompt management, evaluation, guardrails, observability, cost tracking, and model governance at scale."
+  },
+  {
+    "name": "Mapping Code Smells to Refactoring Techniques",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Systematic approach that catalogs code smells and prescribes corresponding refactoring techniques, making technical debt remediation more deterministic and automatable."
+  },
+  {
+    "name": "Multi-Agent Orchestration",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Orchestrating multiple AI agents that collaborate, delegate, or compete to solve complex tasks beyond the capability of a single agent."
+  },
+  {
+    "name": "Mutation Testing",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Testing technique that introduces small changes (mutations) to source code to verify that existing tests can detect them, measuring test suite quality and identifying gaps in coverage."
+  },
+  {
+    "name": "Progressive Context Disclosure",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Technique for managing AI context windows by revealing information incrementally based on relevance, priority, and task phases rather than exposing all context at once."
+  },
+  {
+    "name": "Sandboxed Execution for Coding Agents",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Running code generated by AI agents in isolated, ephemeral environments (containers, VMs, or virtualized runtimes) to prevent security risks, limit blast radius, and enable safe iterative development."
+  },
+  {
+    "name": "Server-Driven UI",
+    "ring": "trial",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Architecture pattern where the server defines the UI structure, layout, and business logic, enabling dynamic UI updates without client app releases."
+  },
+  {
+    "name": "AG-UI Protocol",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Open, event-based protocol standardizing real-time agent-to-user interaction — streaming text, tool calls, state updates, generative UI, and human-in-the-loop across any agent backend and frontend."
+  },
+  {
+    "name": "Agentic RAG on AWS",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Agentic Retrieval-Augmented Generation platform on AWS where an agent orchestrator decides when and how to retrieve, using Bedrock Knowledge Bases on OpenSearch Serverless with hybrid search, semantic cache and routing layers, guardrails, and observability."
+  },
+  {
+    "name": "Agentic Reinforcement Learning Environments",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Environments designed for training AI agents using reinforcement learning in software engineering tasks, such as SWE-bench, HumanEval, and CodeContests."
+  },
+  {
+    "name": "Architecture Drift Reduction with LLMs",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Using LLMs to detect and prevent divergence between intended architecture and implemented code by analyzing code changes against architectural rules."
+  },
+  {
+    "name": "Code Intelligence as Agentic Tooling",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Exposing code intelligence capabilities such as symbol resolution, type inference, call hierarchy, and reference finding as tools for AI coding agents."
+  },
+  {
+    "name": "Context Graph",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Graph-based representation of development context — linking files, functions, types, tests, and documentation — to provide AI agents with navigable, structured context."
+  },
+  {
+    "name": "Durable Execution",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Managing agent workflow state with persistence, automatic retry, and error recovery so pipelines survive network failures, API timeouts, and partial failures."
+  },
+  {
+    "name": "Enterprise RAG Assistant",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "End-to-end enterprise-grade Retrieval-Augmented Generation assistant combining vector search, knowledge graphs, guardrails, and observability for grounded, safe, and explainable AI answers."
+  },
+  {
+    "name": "Feedback Flywheel",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Systematic process where outputs from AI coding agents are reviewed, tested, and the results fed back as data to improve future agent performance."
+  },
+  {
+    "name": "GraphRAG on AWS",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Reference architecture for Graph-based Retrieval-Augmented Generation on AWS, combining knowledge graphs with vector search for multi-hop reasoning."
+  },
+  {
+    "name": "Guardrails",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Safety and control mechanisms that constrain LLM outputs — preventing harmful, unsafe, or policy-violating responses while maintaining utility."
+  },
+  {
+    "name": "HTML Tools",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Specialized tools granting AI agents the ability to inspect, parse, and manipulate HTML structures for web automation, accessibility testing, and UI verification."
+  },
+  {
+    "name": "LLM Evaluation Using Semantic Entropy",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Evaluation method that measures semantic uncertainty in LLM outputs by checking if similar questions produce the same answer, identifying hallucinations and unreliable responses."
+  },
+  {
+    "name": "Lift & Shift Migration - AWS",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Migrate on-premises infrastructure to AWS IaaS (EC2, RDS, etc.) with minimal code changes"
+  },
+  {
+    "name": "Lift & Shift Migration - Azure",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Migrate on-premises infrastructure to Azure IaaS with minimal code changes"
+  },
+  {
+    "name": "Lift & Shift Migration - GCP",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Migrate on-premises infrastructure to GCP IaaS with minimal code changes"
+  },
+  {
+    "name": "MITRE ATLAS",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "MITRE Adversarial Threat Landscape for AI Systems — a knowledge base of adversary tactics, techniques, and procedures specific to AI systems and ML pipelines."
+  },
+  {
+    "name": "Measuring Collaboration Quality with Coding Agents",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Metrics and frameworks for assessing how effectively human developers and AI coding agents collaborate, including acceptance rates, iteration cycles, and developer satisfaction."
+  },
+  {
+    "name": "Ralph Loop",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Ralph (Read-Assess-Learn-Plan-Handle) loop is a structured interaction protocol for coding agents that emphasizes reading context thoroughly before making changes."
+  },
+  {
+    "name": "Reverse Engineering for Design System",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Using automated tools and AI to analyze existing codebases and extract design tokens, component usage, and UI patterns to build or maintain design systems."
+  },
+  {
+    "name": "Role-Based Contextual Isolation in RAG",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Design pattern for RAG systems where different user roles receive context filtered by authorization boundaries, preventing data leakage across roles and tenants."
+  },
+  {
+    "name": "Semantic Caching",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Caching LLM responses keyed by semantic similarity of prompts using vector embeddings, instead of exact string match — reducing latency and inference cost."
+  },
+  {
+    "name": "Semantic Routing",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Routing LLM requests to the best model or processing path based on semantic similarity of the query embedding to route prototypes, instead of exact keywords."
+  },
+  {
+    "name": "Skills as Executable Onboarding Documentation",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Representing onboarding procedures and team conventions as executable agent skills that new team members can invoke rather than reading static documentation."
+  },
+  {
+    "name": "Small Language Models",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Compact, efficient language models (under 7B parameters) designed for specific domains or tasks, enabling local deployment, lower cost, and faster inference."
+  },
+  {
+    "name": "Spec-Driven Development",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Aligning human and AI agents on formal specifications or a constitutional charter before writing code, reducing rework, hallucination, and misalignment."
+  },
+  {
+    "name": "Superpowers",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Agentic skills framework and software development methodology that enforces structured workflows (brainstorm → plan → TDD → subagent development → review) for AI coding agents."
+  },
+  {
+    "name": "Team of Coding Agents",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Multi-agent system where specialized agents (architect, coder, reviewer, tester) collaborate on software tasks, mirroring human team structures."
+  },
+  {
+    "name": "Temporal Fakes",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Testing approach that uses time-manipulation techniques and in-memory implementations of Temporal workflows to verify durable execution, retries, and timeouts without real infrastructure."
+  },
+  {
+    "name": "Toxic Flow Analysis for AI",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Systematic analysis of AI workflows to identify and mitigate harmful patterns including data contamination, biased outputs, unintended information flows, and safety boundary violations."
+  },
+  {
+    "name": "Vision Language Models for End-to-End Document Parsing",
+    "ring": "assess",
+    "quadrant": "techniques",
+    "isNew": "TRUE",
+    "description": "Using VLMs (e.g., GPT-4o, Gemini Pro Vision) to directly parse documents by reading them as images, skipping traditional OCR and layout analysis pipelines."
+  },
+  {
+    "name": "AI-Accelerated Shadow IT",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Risk where AI coding tools enable rapid development of non-approved applications and integrations outside IT governance, amplifying shadow IT risks with higher velocity and lower visibility."
+  },
+  {
+    "name": "Agent Instruction Bloat",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Anti-pattern where AI agent prompts and system instructions grow uncontrollably over time, leading to degraded output quality, increased latency, and higher token costs."
+  },
+  {
+    "name": "Codebase Cognitive Debt",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Accumulation of complexity, non-obvious patterns, and missing abstractions in a codebase that increases mental effort required to understand, modify, or extend the system."
+  },
+  {
+    "name": "Coding Agent Swarms",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Anti-pattern where multiple AI coding agents are deployed simultaneously on the same codebase without coordination, causing conflicts, merge hell, and inconsistent code quality."
+  },
+  {
+    "name": "Coding Throughput as a Measure of Productivity",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Fallacy of equating lines of code written or PRs merged with developer productivity, particularly misleading in the age of AI-assisted code generation where code volume is cheap but quality and business value are not."
+  },
+  {
+    "name": "Ignoring Durability in Agent Workflows",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Anti-pattern where agent workflows lack persistence, retry logic, and error recovery, assuming LLM calls and tool executions always succeed — leading to brittle, hard-to-debug agent systems."
+  },
+  {
+    "name": "MCP by Default",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Anti-pattern of adopting the Model Context Protocol as the default integration mechanism for all AI tool interactions without evaluating simpler alternatives like direct function calling or REST APIs."
+  },
+  {
+    "name": "Pixel-Streamed Development Environments",
+    "ring": "caution",
+    "quadrant": "techniques",
+    "isNew": "FALSE",
+    "description": "Development environments where the entire desktop UI is streamed as pixels (video) to thin clients, introducing latency, bandwidth overhead, and reduced UX fidelity compared to file-sync or terminal-based remote development."
+  }
+];
+const SOURCE_LINKS = {
+  "React": "https://react.dev/",
+  "Svelte": "https://svelte.dev/",
+  "DeepEval": "https://docs.confident-ai.com/",
+  "Google Genkit": "https://genkit.dev/",
+  "LangGraph": "https://langchain-ai.github.io/langgraph/",
+  "Vercel AI SDK": "https://vercel.com/ai-sdk",
+  "Agent Lightning": "https://github.com/microsoft/agent-lightning",
+  "CrewAI": "https://docs.crewai.com/",
+  "Google Agent Development Kit (ADK)": "https://github.com/google/adk-python",
+  "Mastra": "https://mastra.ai/",
+  "Pydantic AI": "https://ai.pydantic.dev/",
+  "TabFM": "https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/",
+  "TabPFN": "https://github.com/PriorLabs/tabpfn",
+  "TanStack Start": "https://tanstack.com/start",
+  "pgvector": "https://github.com/pgvector/pgvector",
+  "AWS Bedrock AgentCore": "https://aws.amazon.com/bedrock/agents/",
+  "Langfuse": "https://langfuse.com/",
+  "LiteLLM": "https://docs.litellm.ai/",
+  "Amazon OpenSearch Service": "https://aws.amazon.com/opensearch-service/",
+  "Coder": "https://coder.com/",
+  "Graphiti": "https://github.com/getzep/graphiti",
+  "Mem0": "https://mem0.ai/",
+  "Qdrant": "https://qdrant.tech/documentation/",
+  "SGLang": "https://sgl-project.github.io/",
+  "SigNoz": "https://signoz.io/",
+  "Sprites": "https://sprites.dev/",
+  "Zep": "https://www.getzep.com/",
+  "vLLM": "https://docs.vllm.ai/",
+  "GitHub Spec Kit": "https://github.com/github/spec-kit",
+  "Marp": "https://github.com/marp-team/marp",
+  "Ollama": "https://ollama.ai/",
+  "OpenHands": "https://github.com/All-Hands-AI/OpenHands",
+  "Curated Shared Instructions": "https://www.thoughtworks.com/radar/techniques/curated-shared-instructions-for-software-teams",
+  "DORA Metrics": "https://dora.dev/guides/dora-metrics/",
+  "MLOps": "https://mlops.org/",
+  "RAG": "https://arxiv.org/abs/2005.11401",
+  "Context Engineering": "https://github.com/microsoft/vscode-docs/blob/main/docs/agents/guides/context-engineering-guide.md",
+  "LLM Evaluation": "https://docs.confident-ai.com/",
+  "LLMOps": "https://www.thoughtworks.com/radar/techniques",
+  "Multi-Agent Orchestration": "https://arxiv.org/abs/2308.10848",
+  "AG-UI Protocol": "https://github.com/ag-ui-protocol/ag-ui",
+  "Agentic RAG on AWS": "https://aws.amazon.com/bedrock/knowledge-bases/",
+  "Enterprise RAG Assistant": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+  "GraphRAG on AWS": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+  "Guardrails": "https://www.thoughtworks.com/radar/techniques",
+  "Semantic Caching": "https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/semantic-cache",
+  "Semantic Routing": "https://redis.io/blog/llm-router-architecture-best-practices",
+  "Superpowers": "https://github.com/obra/superpowers"
+};
+const ITEM_TAGS = {
+  "React": [
+    "cloud",
+    "frontend"
+  ],
+  "React Native": [
+    "frontend"
+  ],
+  "Svelte": [
+    "frontend"
+  ],
+  "DeepEval": [
+    "ai",
+    "observability",
+    "testing"
+  ],
+  "Docling": [
+    "cloud",
+    "data",
+    "tooling"
+  ],
+  "Google Genkit": [
+    "agentic",
+    "ai",
+    "cloud",
+    "frontend",
+    "observability",
+    "rag"
+  ],
+  "LangExtract": [
+    "ai",
+    "data",
+    "frontend",
+    "tooling"
+  ],
+  "LangGraph": [
+    "agentic",
+    "ai",
+    "frontend"
+  ],
+  "Modern.js": [
+    "frontend",
+    "tooling"
+  ],
+  "Typst": [
+    "tooling"
+  ],
+  "Vercel AI SDK": [
+    "agentic",
+    "ai",
+    "cloud",
+    "frontend",
+    "streaming"
+  ],
+  "Agent Lightning": [
+    "agentic",
+    "ai",
+    "cloud"
+  ],
+  "CrewAI": [
+    "agentic",
+    "frontend"
+  ],
+  "Google Agent Development Kit (ADK)": [
+    "agentic",
+    "ai",
+    "frontend"
+  ],
+  "Mastra": [
+    "agentic",
+    "frontend",
+    "rag"
+  ],
+  "Pipecat": [
+    "agentic",
+    "streaming"
+  ],
+  "Pydantic AI": [
+    "agentic",
+    "ai",
+    "frontend",
+    "infrastructure"
+  ],
+  "TOON (Token-Oriented Object Notation)": [
+    "ai"
+  ],
+  "TabFM": [
+    "ai"
+  ],
+  "TabPFN": [
+    "ai"
+  ],
+  "TanStack Start": [
+    "frontend",
+    "infrastructure"
+  ],
+  "Unsloth": [
+    "ai"
+  ],
+  "Apache APISIX": [
+    "cloud",
+    "infrastructure"
+  ],
+  "pgvector": [
+    "data",
+    "rag"
+  ],
+  "AWS Bedrock AgentCore": [
+    "agentic",
+    "cloud"
+  ],
+  "Langfuse": [
+    "ai",
+    "observability"
+  ],
+  "LiteLLM": [
+    "ai",
+    "cloud",
+    "frontend",
+    "infrastructure"
+  ],
+  "AWS Data Migration Tech Stack Add-on": [
+    "cloud",
+    "data"
+  ],
+  "AWS Tech Stack Add-on": [
+    "cloud"
+  ],
+  "Amazon OpenSearch Service": [
+    "ai",
+    "cloud",
+    "lakehouse",
+    "observability",
+    "rag"
+  ],
+  "Azure Data Migration Tech Stack Add-on": [
+    "cloud",
+    "data",
+    "lakehouse"
+  ],
+  "Azure Tech Stack Add-on": [
+    "cloud",
+    "data",
+    "infrastructure"
+  ],
+  "Coder": [
+    "agentic",
+    "infrastructure",
+    "tooling"
+  ],
+  "GCP Tech Stack Add-on": [
+    "cloud",
+    "infrastructure",
+    "streaming"
+  ],
+  "Graphiti": [
+    "agentic",
+    "architecture",
+    "data",
+    "rag"
+  ],
+  "Mem0": [
+    "agentic",
+    "rag"
+  ],
+  "Modern Lakehouse Tech Stack Add-on": [
+    "lakehouse"
+  ],
+  "Qdrant": [
+    "ai",
+    "data",
+    "rag"
+  ],
+  "SGLang": [
+    "ai",
+    "infrastructure"
+  ],
+  "SigNoz": [
+    "observability"
+  ],
+  "Sprites": [
+    "agentic",
+    "infrastructure",
+    "security"
+  ],
+  "Zep": [
+    "agentic",
+    "rag"
+  ],
+  "vLLM": [
+    "ai",
+    "infrastructure"
+  ],
+  "Kafbat UI": [
+    "frontend",
+    "observability",
+    "streaming"
+  ],
+  "Claude Code Plugin Marketplace": [
+    "agentic",
+    "ai",
+    "tooling"
+  ],
+  "Dev Containers": [
+    "infrastructure",
+    "tooling"
+  ],
+  "Figma Make": [
+    "architecture",
+    "frontend",
+    "tooling"
+  ],
+  "OpenAI Codex CLI": [
+    "agentic",
+    "ai",
+    "tooling"
+  ],
+  "cargo-mutants": [
+    "frontend",
+    "testing"
+  ],
+  "GitHub Spec Kit": [
+    "ai",
+    "architecture",
+    "tooling"
+  ],
+  "Marp": [
+    "frontend",
+    "tooling"
+  ],
+  "Ollama": [
+    "ai",
+    "tooling"
+  ],
+  "OpenHands": [
+    "agentic",
+    "ai",
+    "security",
+    "tooling"
+  ],
+  "Curated Shared Instructions": [
+    "agentic",
+    "ai",
+    "architecture"
+  ],
+  "DORA Metrics": [
+    "devops",
+    "infrastructure",
+    "observability"
+  ],
+  "MLOps": [
+    "ai",
+    "data",
+    "devops"
+  ],
+  "Passkeys": [
+    "security"
+  ],
+  "RAG": [
+    "ai",
+    "rag"
+  ],
+  "Agent Skills": [
+    "agentic",
+    "ai",
+    "testing",
+    "tooling"
+  ],
+  "Browser-based Component Testing": [
+    "frontend",
+    "testing"
+  ],
+  "Context Engineering": [
+    "agentic",
+    "ai"
+  ],
+  "Feedback Sensors for Coding Agents": [
+    "agentic",
+    "ai",
+    "observability"
+  ],
+  "LLM Evaluation": [
+    "ai",
+    "observability",
+    "testing"
+  ],
+  "LLMOps": [
+    "ai",
+    "devops",
+    "observability",
+    "security"
+  ],
+  "Mapping Code Smells to Refactoring Techniques": [
+    "testing"
+  ],
+  "Multi-Agent Orchestration": [
+    "agentic"
+  ],
+  "Mutation Testing": [
+    "testing"
+  ],
+  "Progressive Context Disclosure": [
+    "agentic",
+    "ai"
+  ],
+  "Sandboxed Execution for Coding Agents": [
+    "agentic",
+    "architecture",
+    "security"
+  ],
+  "Server-Driven UI": [
+    "architecture",
+    "frontend"
+  ],
+  "AG-UI Protocol": [
+    "agentic",
+    "architecture",
+    "streaming"
+  ],
+  "Agentic RAG on AWS": [
+    "agentic",
+    "ai",
+    "cloud",
+    "rag"
+  ],
+  "Agentic Reinforcement Learning Environments": [
+    "ai"
+  ],
+  "Architecture Drift Reduction with LLMs": [
+    "ai"
+  ],
+  "Code Intelligence as Agentic Tooling": [
+    "ai"
+  ],
+  "Context Graph": [
+    "ai"
+  ],
+  "Durable Execution": [
+    "agentic",
+    "architecture",
+    "testing"
+  ],
+  "Enterprise RAG Assistant": [
+    "ai",
+    "architecture",
+    "rag",
+    "security"
+  ],
+  "Feedback Flywheel": [
+    "ai"
+  ],
+  "GraphRAG on AWS": [
+    "cloud",
+    "data",
+    "rag"
+  ],
+  "Guardrails": [
+    "ai",
+    "security"
+  ],
+  "HTML Tools": [
+    "ai"
+  ],
+  "LLM Evaluation Using Semantic Entropy": [
+    "ai"
+  ],
+  "Lift & Shift Migration - AWS": [
+    "cloud",
+    "infrastructure",
+    "security",
+    "testing"
+  ],
+  "Lift & Shift Migration - Azure": [
+    "cloud",
+    "infrastructure",
+    "security",
+    "testing"
+  ],
+  "Lift & Shift Migration - GCP": [
+    "cloud",
+    "infrastructure",
+    "security",
+    "testing"
+  ],
+  "MITRE ATLAS": [
+    "ai"
+  ],
+  "Measuring Collaboration Quality with Coding Agents": [
+    "ai"
+  ],
+  "Ralph Loop": [
+    "ai"
+  ],
+  "Reverse Engineering for Design System": [
+    "ai"
+  ],
+  "Role-Based Contextual Isolation in RAG": [
+    "ai"
+  ],
+  "Semantic Caching": [
+    "ai",
+    "cloud",
+    "observability",
+    "rag"
+  ],
+  "Semantic Routing": [
+    "ai",
+    "cloud",
+    "infrastructure"
+  ],
+  "Skills as Executable Onboarding Documentation": [
+    "ai"
+  ],
+  "Small Language Models": [
+    "ai"
+  ],
+  "Spec-Driven Development": [
+    "agentic",
+    "architecture"
+  ],
+  "Superpowers": [
+    "agentic",
+    "architecture",
+    "testing"
+  ],
+  "Team of Coding Agents": [
+    "ai"
+  ],
+  "Temporal Fakes": [
+    "ai"
+  ],
+  "Toxic Flow Analysis for AI": [
+    "ai"
+  ],
+  "Vision Language Models for End-to-End Document Parsing": [
+    "ai"
+  ],
+  "AI-Accelerated Shadow IT": [
+    "ai",
+    "architecture",
+    "security"
+  ],
+  "Agent Instruction Bloat": [
+    "agentic",
+    "ai",
+    "architecture"
+  ],
+  "Codebase Cognitive Debt": [
+    "architecture",
+    "testing"
+  ],
+  "Coding Agent Swarms": [
+    "agentic",
+    "architecture"
+  ],
+  "Coding Throughput as a Measure of Productivity": [
+    "architecture",
+    "observability"
+  ],
+  "Ignoring Durability in Agent Workflows": [
+    "agentic",
+    "architecture",
+    "testing"
+  ],
+  "MCP by Default": [
+    "agentic",
+    "architecture"
+  ],
+  "Pixel-Streamed Development Environments": [
+    "architecture",
+    "infrastructure",
+    "tooling"
+  ]
+};
+(function(){
+  const RING_ORDER=['adopt','trial','assess','hold','caution'];
+  const RING_META={
+    adopt:{label:'Adopt',  color:'#2dd4bf'},
+    trial:{label:'Trial',  color:'#38bdf8'},
+    assess:{label:'Assess',color:'#fbbf24'},
+    hold:{label:'Hold',    color:'#fb923c'},
+    caution:{label:'Caution',color:'#f87171'}
+  };
+  const QUADS=[
+    {key:'languages & frameworks', label:'Languages & Frameworks'},
+    {key:'tools', label:'Tools'},
+    {key:'techniques', label:'Techniques'},
+    {key:'platforms', label:'Platforms'}
+  ];
+  const ITEMS = RADAR_DATA.map(function(d,i){
+    return {name:d.name, ring:d.ring, quad:d.quadrant, isNew:d.isNew, desc:d.description, tags:ITEM_TAGS[d.name]||[], n:i+1};
+  });
+
+  const grid=document.getElementById('grid'),
+        emptyEl=document.getElementById('empty'),
+        search=document.getElementById('search'),
+        countEl=document.getElementById('countDisplay'),
+        overlay=document.getElementById('modalOverlay'),
+        modal=document.getElementById('modal'),
+        modalBody=document.getElementById('modalBody'),
+        tagCloud=document.getElementById('tagCloud');
+
+  const state={tag:'',search:''};
+
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function trunc(s,n){return s.length>n?s.slice(0,n-1)+'…':s;}
+  function quadLabel(key){const q=QUADS.find(x=>x.key===key);return q?q.label:key;}
+  function ringLabel(k){return RING_META[k].label;}
+
+  function visible(item){
+    if(state.tag && item.tags.indexOf(state.tag)===-1) return false;
+    if(state.search){
+      const q=state.search.toLowerCase();
+      if((item.name+' '+item.desc+' '+item.tags.join(' ')).toLowerCase().indexOf(q)===-1) return false;
+    }
+    return true;
+  }
+
+  function cardHTML(item,i){
+    const m=RING_META[item.ring];
+    const tags=item.tags.map(function(t){
+      return '<button class="tag-chip'+(state.tag===t?' active':'')+'" type="button" data-tag="'+esc(t)+'">'+esc(t)+'</button>';
+    }).join('');
+    return '<div class="card" role="button" tabindex="0" data-i="'+i+'" style="--i:'+(i%28)+'" aria-label="'+esc(item.name)+' · '+m.label+'">'+
+      '<div class="num">#'+String(item.n).padStart(3,'0')+'</div>'+
+      '<div class="ring-badge" style="color:'+m.color+';background:'+m.color+'1a;border:1px solid '+m.color+'44">'+m.label+'</div>'+
+      '<h2>'+esc(item.name)+'</h2>'+
+      '<div class="desc">'+esc(trunc(item.desc,170))+'</div>'+
+      '<div class="tags">'+tags+(item.isNew==='TRUE'?'<button class="tag-chip t-new" type="button">New</button>':'')+'</div>'+
+      '</div>';
+  }
+
+  function render(){
+    let html='', shown=0;
+    ITEMS.forEach(function(item,i){
+      if(!visible(item)) return;
+      shown++;
+      html+=cardHTML(item,i);
+    });
+    grid.innerHTML=html;
+    emptyEl.hidden=shown!==0;
+    countEl.textContent=shown+' / '+ITEMS.length+' technologies';
+    grid.querySelectorAll('.card').forEach(function(c){
+      c.addEventListener('click',function(){openDetail(ITEMS[+c.dataset.i]);});
+      c.addEventListener('keydown',function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();openDetail(ITEMS[+c.dataset.i]);}
+      });
+    });
+    grid.querySelectorAll('.tag-chip').forEach(function(b){
+      b.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        setTag(b.dataset.tag==='New'?'':(b.dataset.tag||''));
+      });
+    });
+    refreshTagCloud();
+  }
+
+  function openDetail(item){
+    const m=RING_META[item.ring];
+    const src=SOURCE_LINKS[item.name];
+    const tags='<span style="color:'+m.color+';border-color:'+m.color+'44;background:'+m.color+'1a">'+m.label+'</span>'+
+               '<span>'+quadLabel(item.quad)+'</span>'+
+               (item.isNew==='TRUE'?'<span class="t-new">New</span>':'');
+    const fileTags=item.tags.map(function(t){return '<span>'+esc(t)+'</span>';}).join('');
+    let cta='';
+    if(src) cta='<div class="section"><h3>Source</h3><a class="cta" href="'+esc(src)+'" target="_blank" rel="noopener">Open original source &rarr;</a></div>';
+    modalBody.innerHTML=
+      '<div class="num">#'+String(item.n).padStart(3,'0')+'</div>'+
+      '<h2>'+esc(item.name)+'</h2>'+
+      '<div class="section"><h3>Description</h3><p>'+esc(item.desc)+'</p></div>'+
+      '<div class="section"><h3>Classification</h3><div class="tags">'+tags+'</div></div>'+
+      (fileTags?'<div class="section"><h3>Tags</h3><div class="tags">'+fileTags+'</div></div>':'')+
+      cta;
+    overlay.classList.add('open');
+    modal.scrollTop=0;
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+  }
+
+  function setTag(t){
+    state.tag=(t===state.tag?'':t);
+    refreshTagCloud();
+    render();
+  }
+
+  function refreshTagCloud(){
+    const counts={};
+    ITEMS.forEach(function(i){i.tags.forEach(function(t){counts[t]=(counts[t]||0)+1;});});
+    const tags=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a]||a.localeCompare(b);});
+    tagCloud.innerHTML=tags.map(function(t){
+      return '<button type="button" data-tag="'+esc(t)+'" class="'+(state.tag===t?'active':'')+'">'+esc(t)+'<span class="n">'+counts[t]+'</span></button>';
+    }).join('');
+    tagCloud.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){setTag(b.dataset.tag);});
+    });
+  }
+
+  search.addEventListener('input',function(){state.search=search.value.trim();render();});
+
+  document.getElementById('modalClose').onclick=closeModal;
+  overlay.addEventListener('click',function(ev){if(ev.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape')closeModal();
+  });
+
+  refreshTagCloud();
+  render();
+
+  const newCount=ITEMS.filter(function(i){return i.isNew==='TRUE';}).length;
+  document.getElementById('foot-note').textContent='Generated '+new Date().toISOString().slice(0,10)+' · '+ITEMS.length+' technologies · '+newCount+' new · source: 05-technology-intelligence/radar/radar.json';
+})();
+</script>
+</body>
+</html>
